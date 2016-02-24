@@ -1,0 +1,10 @@
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile "org.jsoup:jsoup:1.8.3"
+
+    compile "org.springframework:spring-web:$springVersion"
+    compile "com.alibaba:fastjson:1.2.0"
+
+    compile project(':common-service')
+    compile project(':common-util')
+}

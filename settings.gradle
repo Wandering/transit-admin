@@ -1,0 +1,9 @@
+rootProject.name = 'transit-admin'
+include 'datagrab'
+include 'common-domain'
+include 'common-util'
+include 'common-service'
+include 'base-service'
+include 'base-domain'
+include 'base-api'
+
