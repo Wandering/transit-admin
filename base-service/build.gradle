@@ -13,4 +13,5 @@ dependencies {
     compile "com.alibaba:druid:1.0.7"
     compile "commons-lang:commons-lang:2.6"
     compile "mysql:mysql-connector-java:$mysqlConnectorVersion"
+    compile project(":base-api")
 }

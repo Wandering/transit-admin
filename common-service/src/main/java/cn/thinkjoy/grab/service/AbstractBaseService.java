@@ -1,11 +1,9 @@
 package cn.thinkjoy.grab.service;
 
 
-import cn.thinkjoy.common.domain.BaseDomain;
-import cn.thinkjoy.common.domain.CreateBaseDomain;
-import cn.thinkjoy.common.service.IBaseService;
-import cn.thinkjoy.common.service.IDaoAware;
-import cn.thinkjoy.common.utils.SqlOrderEnum;
+import cn.thinkjoy.grab.dao.IBaseDAO;
+import cn.thinkjoy.grab.domain.BaseDomain;
+import cn.thinkjoy.grab.utils.SqlOrderEnum;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -230,35 +228,10 @@ public abstract class AbstractBaseService<D extends IBaseDAO,T extends BaseDomai
     }
 
     private T enhanceCreateBaseDomain(T entity){
-        if(entity instanceof CreateBaseDomain){
-            ((CreateBaseDomain) entity).setLastModDate(System.currentTimeMillis());
-            //TODO 当前用户
-        }
-
         return entity;
     }
 
     private T enhanceNewCreateBaseDomain(T entity){
-        if(entity instanceof CreateBaseDomain){
-            //设置默认值，如果默认值和common不一样，需要自行设置初始值
-            if (((CreateBaseDomain) entity).getCreateDate() == null){
-                ((CreateBaseDomain) entity).setCreateDate(System.currentTimeMillis());
-            }
-            if (((CreateBaseDomain) entity).getStatus() == null){
-                ((CreateBaseDomain) entity).setStatus(0);
-            }
-            if (((CreateBaseDomain) entity).getLastModDate() == null){
-                ((CreateBaseDomain) entity).setLastModDate(0l);
-            }
-            if (((CreateBaseDomain) entity).getCreator() == null){
-                ((CreateBaseDomain) entity).setCreator(0l);
-            }
-            if (((CreateBaseDomain) entity).getLastModifier() == null){
-                ((CreateBaseDomain) entity).setLastModifier(0l);
-            }
-            //TODO 当前用户
-        }
-
         return entity;
     }
 
