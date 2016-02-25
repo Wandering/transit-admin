@@ -1,9 +1,9 @@
 package cn.thinkjoy.grab.service;
 
+import cn.thinkjoy.grab.common.SqlOrderEnum;
 import cn.thinkjoy.grab.dao.IBaseDAO;
 import cn.thinkjoy.grab.domain.BaseDomain;
 import cn.thinkjoy.grab.domain.BizData4Page;
-import cn.thinkjoy.grab.utils.SqlOrderEnum;
 
 import java.util.Map;
 

@@ -1,4 +1,4 @@
-package cn.thinkjoy.grab.utils;
+package cn.thinkjoy.grab.common;
 
 /**
  * 功能按钮枚举

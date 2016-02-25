@@ -1,4 +1,4 @@
-package cn.thinkjoy.grab.utils;
+package cn.thinkjoy.grab.common;
 
 import cn.thinkjoy.grab.dao.IBaseDAO;
 import cn.thinkjoy.grab.domain.BizData4Page;

@@ -1,9 +1,9 @@
 package cn.thinkjoy.grab.service;
 
 
+import cn.thinkjoy.grab.common.SqlOrderEnum;
 import cn.thinkjoy.grab.dao.IBaseDAO;
 import cn.thinkjoy.grab.domain.BaseDomain;
-import cn.thinkjoy.grab.utils.SqlOrderEnum;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;

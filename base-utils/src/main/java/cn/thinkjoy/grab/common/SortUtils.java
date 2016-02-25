@@ -1,4 +1,4 @@
-package cn.thinkjoy.grab.utils;
+package cn.thinkjoy.grab.common;
 
 /**
  * Created by admin on 2016/2/23.
