@@ -7,6 +7,7 @@ insert
 update
 updateNull
 deleteById
+deleteByCondition
 deleteByProperty
 fetch
 findOne
@@ -25,6 +26,7 @@ selectList
 
     <sql id="Base_Column_List">
         id as id ,
+        type as type ,
         url as url ,
         orderNum as orderNum ,
         parentId as parentId ,
@@ -35,6 +37,7 @@ selectList
     </sql>
     <insert id="insert" parameterType="Menu">
         INSERT INTO transit_menu (
+        type,
         url,
         orderNum,
         parentId,
@@ -43,6 +46,7 @@ selectList
         name,
         description
         ) VALUES (
+        #{type},
         #{url},
         #{orderNum},
         #{parentId},
@@ -60,6 +64,9 @@ selectList
     <update id="update" parameterType="Menu">
         UPDATE transit_menu
         <trim prefix="SET" suffixOverrides=",">
+            <if test="type!=null">
+                type = #{type},
+            </if>
             <if test="url!=null">
                 url = #{url},
             </if>
@@ -89,6 +96,9 @@ selectList
     <update id="updateMap">
         UPDATE transit_menu
         <trim prefix="SET" suffixOverrides=",">
+            <if test="map.type!=null">
+                type = #{map.type},
+            </if>
             <if test="map.url!=null">
                 url = #{map.url},
             </if>
@@ -118,6 +128,9 @@ selectList
     <update id="updateByCondition">
         UPDATE transit_menu
         <trim prefix="SET" suffixOverrides=",">
+            <if test="update.type!=null">
+                type = #{update.type},
+            </if>
             <if test="update.url!=null">
                 url = #{update.url},
             </if>
@@ -145,6 +158,9 @@ selectList
             <if test="condition.id!=null">
                 AND id = #{condition.id}
             </if>
+            <if test="condition.type!=null">
+                AND type = #{condition.type}
+            </if>
             <if test="condition.url!=null">
                 AND url = #{condition.url}
             </if>
@@ -171,6 +187,7 @@ selectList
 
     <insert id="insertMap" >
         INSERT INTO transit_menu (
+                type,
                 url,
                 orderNum,
                 parentId,
@@ -179,6 +196,7 @@ selectList
                 name,
                 description
         ) VALUES (
+                    #{map.type},
                     #{map.url},
                     #{map.orderNum},
                     #{map.parentId},
@@ -193,6 +211,7 @@ selectList
     <update id="updateNull" parameterType="Menu">
         UPDATE transit_menu
         <trim prefix="SET" suffixOverrides=",">
+            type = #{type},
             url = #{url},
             orderNum = #{orderNum},
             parentId = #{parentId},
@@ -219,6 +238,9 @@ selectList
         <trim prefix="WHERE" prefixOverrides="AND | OR">
             <if test="id!=null">
                 AND id = #{id}
+            </if>
+            <if test="type!=null">
+                AND type = #{type}
             </if>
             <if test="url!=null">
                 AND url = #{url}
@@ -295,6 +317,9 @@ selectList
                         <if test="selector.id!=null">
                             , id
                         </if>
+                        <if test="selector.type!=null">
+                            , type
+                        </if>
                         <if test="selector.url!=null">
                             , url
                         </if>
@@ -330,6 +355,9 @@ selectList
 
             <if test="condition.id!=null">
                 ${condition.groupOp}   ${condition.id.field}  ${condition.id.op}  #{condition.id.data}
+            </if>
+            <if test="condition.type!=null">
+                ${condition.groupOp}   ${condition.type.field}  ${condition.type.op}  #{condition.type.data}
             </if>
             <if test="condition.url!=null">
                 ${condition.groupOp}   ${condition.url.field}  ${condition.url.op}  #{condition.url.data}
@@ -370,6 +398,9 @@ selectList
                     <if test="selector.id!=null">
                         , id
                     </if>
+                    <if test="selector.type!=null">
+                        , type
+                    </if>
                     <if test="selector.url!=null">
                         , url
                     </if>
@@ -400,6 +431,9 @@ selectList
         <trim prefix="WHERE" prefixOverrides="AND | OR">
             <if test="condition.id!=null">
                 AND id like CONCAT('%', #{condition.id} , '%')
+            </if>
+            <if test="condition.type!=null">
+                AND type like CONCAT('%', #{condition.type} , '%')
             </if>
             <if test="condition.url!=null">
                 AND url like CONCAT('%', #{condition.url} , '%')
@@ -436,6 +470,9 @@ selectList
                 <if test="selector.id!=null">
                     , id
                 </if>
+                <if test="selector.type!=null">
+                    , type
+                </if>
                 <if test="selector.url!=null">
                     , url
                 </if>
@@ -466,6 +503,9 @@ selectList
         <trim prefix="WHERE" prefixOverrides="AND | OR">
             <if test="condition.id!=null">
                 AND id = #{condition.id}
+            </if>
+            <if test="condition.type!=null">
+                AND type = #{condition.type}
             </if>
             <if test="condition.url!=null">
                 AND url = #{condition.url}
@@ -501,6 +541,9 @@ selectList
                     <if test="selector.id!=null">
                         , id
                     </if>
+                    <if test="selector.type!=null">
+                        , type
+                    </if>
                     <if test="selector.url!=null">
                         , url
                     </if>
@@ -531,6 +574,9 @@ selectList
         <trim prefix="WHERE" prefixOverrides="AND | OR">
             <if test="condition.id!=null">
                 AND id = #{condition.id}
+            </if>
+            <if test="condition.type!=null">
+                AND type = #{condition.type}
             </if>
             <if test="condition.url!=null">
                 AND url = #{condition.url}
@@ -565,6 +611,9 @@ selectList
        <where>
            <if test="id!=null">
                ${groupOp} ${id.field} ${id.op}  #{id.data}
+           </if>
+           <if test="type!=null">
+               ${groupOp} ${type.field} ${type.op}  #{type.data}
            </if>
            <if test="url!=null">
                ${groupOp} ${url.field} ${url.op}  #{url.data}

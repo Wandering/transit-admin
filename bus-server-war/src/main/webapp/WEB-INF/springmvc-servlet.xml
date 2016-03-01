@@ -54,6 +54,12 @@
                 <value>application/json; charset=utf-8</value>
             </list>
         </property>
+
+        <property name="features">
+            <array value-type="com.alibaba.fastjson.serializer.SerializerFeature">
+                <value>DisableCircularReferenceDetect</value>
+            </array>
+        </property>
     </bean>
 
     <mvc:interceptors >

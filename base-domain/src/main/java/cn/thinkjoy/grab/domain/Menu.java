@@ -2,7 +2,7 @@
  * Copyright (c) 2013-2014, thinkjoy Inc. All Rights Reserved.
  *
  * Project Name: grab
- * $Id:  Menu.java 2016-02-29 16:38:19 $
+ * $Id:  Menu.java 2016-03-01 11:11:36 $
  */
 
 
@@ -16,7 +16,11 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
-public class Menu extends BaseDomain<Long>{
+import java.util.*;
+
+public class Menu extends BaseDomain<Integer>{
+    /** 0前端1admin */
+    private Boolean type;
     /** 页面url */
     private String url;
     /** 顺序 */
@@ -34,6 +38,13 @@ public class Menu extends BaseDomain<Long>{
 
 	public Menu(){
 	}
+    public void setType(Boolean value) {
+        this.type = value;
+    }
+
+    public Boolean getType() {
+        return this.type;
+    }
     public void setUrl(String value) {
         this.url = value;
     }
@@ -87,6 +98,7 @@ public class Menu extends BaseDomain<Long>{
 	public String toString() {
 		return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
 			.append("Id",getId())
+			.append("Type",getType())
 			.append("Url",getUrl())
 			.append("OrderNum",getOrderNum())
 			.append("ParentId",getParentId())

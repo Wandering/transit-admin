@@ -1,6 +1,7 @@
 package cn.thinkjoy.grab.common;
 
-import cn.thinkjoy.grab.domain.ResponseT;
+import cn.thinkjoy.common.protocol.ResponseT;
+import cn.thinkjoy.common.utils.RtnCodeEnum;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import org.springframework.http.HttpInputMessage;
