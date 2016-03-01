@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.thinkjoy.grab.dao.IMenuDAO">
+<!--
+insert
+update
+updateNull
+deleteById
+deleteByProperty
+fetch
+findOne
+findList
+findAll
+queryPage
+like
+queryList
+queryOne
+count
+selectMaxId
+updateOrSave
+selectOne
+selectList
+-->
+
+    <sql id="Base_Column_List">
+        id as id ,
+        url as url ,
+        orderNum as orderNum ,
+        parentId as parentId ,
+        number as number ,
+        longNumber as longNumber ,
+        name as name ,
+        description as description 
+    </sql>
+    <insert id="insert" parameterType="Menu">
+        INSERT INTO transit_menu (
+        url,
+        orderNum,
+        parentId,
+        number,
+        longNumber,
+        name,
+        description
+        ) VALUES (
+        #{url},
+        #{orderNum},
+        #{parentId},
+        #{number},
+        #{longNumber},
+        #{name},
+        #{description}
+        )
+            <selectKey resultType="java.lang.Integer" keyProperty="id">
+                SELECT LAST_INSERT_ID() AS ID
+            </selectKey>
+    </insert>
+
+    <!-- 更新 -->
+    <update id="update" parameterType="Menu">
+        UPDATE transit_menu
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="url!=null">
+                url = #{url},
+            </if>
+            <if test="orderNum!=null">
+                orderNum = #{orderNum},
+            </if>
+            <if test="parentId!=null">
+                parentId = #{parentId},
+            </if>
+            <if test="number!=null">
+                number = #{number},
+            </if>
+            <if test="longNumber!=null">
+                longNumber = #{longNumber},
+            </if>
+            <if test="name!=null">
+                name = #{name},
+            </if>
+            <if test="description!=null">
+                description = #{description},
+            </if>
+        </trim>
+        WHERE
+        id = #{id}
+    </update>
+
+    <update id="updateMap">
+        UPDATE transit_menu
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="map.url!=null">
+                url = #{map.url},
+            </if>
+            <if test="map.orderNum!=null">
+                orderNum = #{map.orderNum},
+            </if>
+            <if test="map.parentId!=null">
+                parentId = #{map.parentId},
+            </if>
+            <if test="map.number!=null">
+                number = #{map.number},
+            </if>
+            <if test="map.longNumber!=null">
+                longNumber = #{map.longNumber},
+            </if>
+            <if test="map.name!=null">
+                name = #{map.name},
+            </if>
+            <if test="map.description!=null">
+                description = #{map.description},
+            </if>
+        </trim>
+        WHERE
+        id = #{map.id}
+    </update>
+
+    <update id="updateByCondition">
+        UPDATE transit_menu
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="update.url!=null">
+                url = #{update.url},
+            </if>
+            <if test="update.orderNum!=null">
+                orderNum = #{update.orderNum},
+            </if>
+            <if test="update.parentId!=null">
+                parentId = #{update.parentId},
+            </if>
+            <if test="update.number!=null">
+                number = #{update.number},
+            </if>
+            <if test="update.longNumber!=null">
+                longNumber = #{update.longNumber},
+            </if>
+            <if test="update.name!=null">
+                name = #{update.name},
+            </if>
+            <if test="update.description!=null">
+                description = #{update.description},
+            </if>
+        </trim>
+
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="condition.id!=null">
+                AND id = #{condition.id}
+            </if>
+            <if test="condition.url!=null">
+                AND url = #{condition.url}
+            </if>
+            <if test="condition.orderNum!=null">
+                AND orderNum = #{condition.orderNum}
+            </if>
+            <if test="condition.parentId!=null">
+                AND parentId = #{condition.parentId}
+            </if>
+            <if test="condition.number!=null">
+                AND number = #{condition.number}
+            </if>
+            <if test="condition.longNumber!=null">
+                AND longNumber = #{condition.longNumber}
+            </if>
+            <if test="condition.name!=null">
+                AND name = #{condition.name}
+            </if>
+            <if test="condition.description!=null">
+                AND description = #{condition.description}
+            </if>
+        </trim>
+    </update>
+
+    <insert id="insertMap" >
+        INSERT INTO transit_menu (
+                url,
+                orderNum,
+                parentId,
+                number,
+                longNumber,
+                name,
+                description
+        ) VALUES (
+                    #{map.url},
+                    #{map.orderNum},
+                    #{map.parentId},
+                    #{map.number},
+                    #{map.longNumber},
+                    #{map.name},
+                    #{map.description}
+        )
+    </insert>
+
+
+    <update id="updateNull" parameterType="Menu">
+        UPDATE transit_menu
+        <trim prefix="SET" suffixOverrides=",">
+            url = #{url},
+            orderNum = #{orderNum},
+            parentId = #{parentId},
+            number = #{number},
+            longNumber = #{longNumber},
+            name = #{name},
+            description = #{description},
+        </trim>
+        WHERE
+        id = #{id} 
+    </update>
+
+    <!-- 按Id删除 -->
+    <delete id="deleteById" parameterType="java.lang.Integer">
+        DELETE FROM transit_menu
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            AND id = #{id}
+        </trim>
+    </delete>
+
+
+    <delete id="deleteByCondition" parameterType="java.util.Map">
+        DELETE FROM transit_menu
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="id!=null">
+                AND id = #{id}
+            </if>
+            <if test="url!=null">
+                AND url = #{url}
+            </if>
+            <if test="orderNum!=null">
+                AND orderNum = #{orderNum}
+            </if>
+            <if test="parentId!=null">
+                AND parentId = #{parentId}
+            </if>
+            <if test="number!=null">
+                AND number = #{number}
+            </if>
+            <if test="longNumber!=null">
+                AND longNumber = #{longNumber}
+            </if>
+            <if test="name!=null">
+                AND name = #{name}
+            </if>
+            <if test="description!=null">
+                AND description = #{description}
+            </if>
+        </trim>
+    </delete>
+
+    <delete id="deleteByProperty" parameterType="java.util.Map">
+        DELETE FROM transit_menu WHERE
+        ${property} = #{value}
+    </delete>
+
+    <select id="fetch" parameterType="java.lang.Integer" resultType="Menu">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM transit_menu
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            AND id = #{id}
+        </trim>
+    </select>
+
+    <select id="findOne" parameterType="java.util.Map" resultType="Menu">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM transit_menu WHERE
+        ${property} = #{value}
+        <if test="orderBy!=null">
+            ORDER BY ${orderBy} ${sortBy}
+        </if>
+        LIMIT 0,1
+    </select>
+
+    <select id="findList" parameterType="java.util.Map" resultType="Menu">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM transit_menu WHERE
+        ${property} = #{value}
+        <if test="orderBy!=null">
+            ORDER BY ${orderBy} ${sortBy}
+        </if>
+    </select>
+
+    <select id="findAll" resultType="Menu">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM transit_menu
+        <if test="orderBy!=null">
+            ORDER BY ${orderBy} ${sortBy}
+        </if>
+    </select>
+
+    <select id="queryPage" resultType="Menu">
+        SELECT
+        <if test="selector!=null">
+            <trim prefixOverrides=",">
+                        <if test="selector.id!=null">
+                            , id
+                        </if>
+                        <if test="selector.url!=null">
+                            , url
+                        </if>
+                        <if test="selector.orderNum!=null">
+                            , orderNum
+                        </if>
+                        <if test="selector.parentId!=null">
+                            , parentId
+                        </if>
+                        <if test="selector.number!=null">
+                            , number
+                        </if>
+                        <if test="selector.longNumber!=null">
+                            , longNumber
+                        </if>
+                        <if test="selector.name!=null">
+                            , name
+                        </if>
+                        <if test="selector.description!=null">
+                            , description
+                        </if>
+            </trim>
+        </if>
+        <if test="selector==null">
+        <include refid="Base_Column_List" />
+        </if>
+        FROM transit_menu
+        <where>
+
+            <if test="condition.whereSql != null">
+                and id in (#{condition.whereSql})
+            </if>
+
+            <if test="condition.id!=null">
+                ${condition.groupOp}   ${condition.id.field}  ${condition.id.op}  #{condition.id.data}
+            </if>
+            <if test="condition.url!=null">
+                ${condition.groupOp}   ${condition.url.field}  ${condition.url.op}  #{condition.url.data}
+            </if>
+            <if test="condition.orderNum!=null">
+                ${condition.groupOp}   ${condition.orderNum.field}  ${condition.orderNum.op}  #{condition.orderNum.data}
+            </if>
+            <if test="condition.parentId!=null">
+                ${condition.groupOp}   ${condition.parentId.field}  ${condition.parentId.op}  #{condition.parentId.data}
+            </if>
+            <if test="condition.number!=null">
+                ${condition.groupOp}   ${condition.number.field}  ${condition.number.op}  #{condition.number.data}
+            </if>
+            <if test="condition.longNumber!=null">
+                ${condition.groupOp}   ${condition.longNumber.field}  ${condition.longNumber.op}  #{condition.longNumber.data}
+            </if>
+            <if test="condition.name!=null">
+                ${condition.groupOp}   ${condition.name.field}  ${condition.name.op}  #{condition.name.data}
+            </if>
+            <if test="condition.description!=null">
+                ${condition.groupOp}   ${condition.description.field}  ${condition.description.op}  #{condition.description.data}
+            </if>
+
+
+    </where>
+        <if test="orderBy!=null">
+        ORDER BY ${orderBy} ${sortBy}
+        </if>
+        <if test="offset != null">
+            limit ${offset}, ${rows}
+        </if>
+    </select>
+
+    <select id="like" parameterType="java.util.Map" resultType="Menu">
+        SELECT
+        <if test="selector!=null">
+            <trim prefixOverrides=",">
+                    <if test="selector.id!=null">
+                        , id
+                    </if>
+                    <if test="selector.url!=null">
+                        , url
+                    </if>
+                    <if test="selector.orderNum!=null">
+                        , orderNum
+                    </if>
+                    <if test="selector.parentId!=null">
+                        , parentId
+                    </if>
+                    <if test="selector.number!=null">
+                        , number
+                    </if>
+                    <if test="selector.longNumber!=null">
+                        , longNumber
+                    </if>
+                    <if test="selector.name!=null">
+                        , name
+                    </if>
+                    <if test="selector.description!=null">
+                        , description
+                    </if>
+            </trim>
+        </if>
+        <if test="selector==null">
+            <include refid="Base_Column_List" />
+        </if>
+        FROM transit_menu
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="condition.id!=null">
+                AND id like CONCAT('%', #{condition.id} , '%')
+            </if>
+            <if test="condition.url!=null">
+                AND url like CONCAT('%', #{condition.url} , '%')
+            </if>
+            <if test="condition.orderNum!=null">
+                AND orderNum like CONCAT('%', #{condition.orderNum} , '%')
+            </if>
+            <if test="condition.parentId!=null">
+                AND parentId like CONCAT('%', #{condition.parentId} , '%')
+            </if>
+            <if test="condition.number!=null">
+                AND number like CONCAT('%', #{condition.number} , '%')
+            </if>
+            <if test="condition.longNumber!=null">
+                AND longNumber like CONCAT('%', #{condition.longNumber} , '%')
+            </if>
+            <if test="condition.name!=null">
+                AND name like CONCAT('%', #{condition.name} , '%')
+            </if>
+            <if test="condition.description!=null">
+                AND description like CONCAT('%', #{condition.description} , '%')
+            </if>
+        </trim>
+        <if test="orderBy!=null">
+        ORDER BY ${orderBy} ${sortBy}
+        </if>
+    </select>
+
+
+    <select id="queryList" parameterType="java.util.Map" resultType="Menu">
+        SELECT
+        <if test="selector!=null">
+            <trim prefixOverrides=",">
+                <if test="selector.id!=null">
+                    , id
+                </if>
+                <if test="selector.url!=null">
+                    , url
+                </if>
+                <if test="selector.orderNum!=null">
+                    , orderNum
+                </if>
+                <if test="selector.parentId!=null">
+                    , parentId
+                </if>
+                <if test="selector.number!=null">
+                    , number
+                </if>
+                <if test="selector.longNumber!=null">
+                    , longNumber
+                </if>
+                <if test="selector.name!=null">
+                    , name
+                </if>
+                <if test="selector.description!=null">
+                    , description
+                </if>
+        </trim>
+    </if>
+<if test="selector==null">
+<include refid="Base_Column_List" />
+</if>
+        FROM transit_menu
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="condition.id!=null">
+                AND id = #{condition.id}
+            </if>
+            <if test="condition.url!=null">
+                AND url = #{condition.url}
+            </if>
+            <if test="condition.orderNum!=null">
+                AND orderNum = #{condition.orderNum}
+            </if>
+            <if test="condition.parentId!=null">
+                AND parentId = #{condition.parentId}
+            </if>
+            <if test="condition.number!=null">
+                AND number = #{condition.number}
+            </if>
+            <if test="condition.longNumber!=null">
+                AND longNumber = #{condition.longNumber}
+            </if>
+            <if test="condition.name!=null">
+                AND name = #{condition.name}
+            </if>
+            <if test="condition.description!=null">
+                AND description = #{condition.description}
+            </if>
+        </trim>
+        <if test="orderBy!=null">
+        ORDER BY ${orderBy} ${sortBy}
+        </if>
+    </select>
+
+    <select id="queryOne" parameterType="java.util.Map" resultType="Menu">
+        SELECT
+        <if test="selector!=null">
+            <trim prefixOverrides=",">
+                    <if test="selector.id!=null">
+                        , id
+                    </if>
+                    <if test="selector.url!=null">
+                        , url
+                    </if>
+                    <if test="selector.orderNum!=null">
+                        , orderNum
+                    </if>
+                    <if test="selector.parentId!=null">
+                        , parentId
+                    </if>
+                    <if test="selector.number!=null">
+                        , number
+                    </if>
+                    <if test="selector.longNumber!=null">
+                        , longNumber
+                    </if>
+                    <if test="selector.name!=null">
+                        , name
+                    </if>
+                    <if test="selector.description!=null">
+                        , description
+                    </if>
+            </trim>
+        </if>
+        <if test="selector==null">
+            <include refid="Base_Column_List" />
+        </if>
+        FROM transit_menu
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="condition.id!=null">
+                AND id = #{condition.id}
+            </if>
+            <if test="condition.url!=null">
+                AND url = #{condition.url}
+            </if>
+            <if test="condition.orderNum!=null">
+                AND orderNum = #{condition.orderNum}
+            </if>
+            <if test="condition.parentId!=null">
+                AND parentId = #{condition.parentId}
+            </if>
+            <if test="condition.number!=null">
+                AND number = #{condition.number}
+            </if>
+            <if test="condition.longNumber!=null">
+                AND longNumber = #{condition.longNumber}
+            </if>
+            <if test="condition.name!=null">
+                AND name = #{condition.name}
+            </if>
+            <if test="condition.description!=null">
+                AND description = #{condition.description}
+            </if>
+        </trim>
+        <if test="orderBy!=null">
+        ORDER BY ${orderBy} ${sortBy}
+        </if>
+        limit 0,1
+    </select>
+
+    <select id="count" resultType="java.lang.Integer">
+        SELECT count(id) FROM transit_menu
+       <where>
+           <if test="id!=null">
+               ${groupOp} ${id.field} ${id.op}  #{id.data}
+           </if>
+           <if test="url!=null">
+               ${groupOp} ${url.field} ${url.op}  #{url.data}
+           </if>
+           <if test="orderNum!=null">
+               ${groupOp} ${orderNum.field} ${orderNum.op}  #{orderNum.data}
+           </if>
+           <if test="parentId!=null">
+               ${groupOp} ${parentId.field} ${parentId.op}  #{parentId.data}
+           </if>
+           <if test="number!=null">
+               ${groupOp} ${number.field} ${number.op}  #{number.data}
+           </if>
+           <if test="longNumber!=null">
+               ${groupOp} ${longNumber.field} ${longNumber.op}  #{longNumber.data}
+           </if>
+           <if test="name!=null">
+               ${groupOp} ${name.field} ${name.op}  #{name.data}
+           </if>
+           <if test="description!=null">
+               ${groupOp} ${description.field} ${description.op}  #{description.data}
+           </if>
+
+       </where>
+    </select>
+
+    <select id="selectMaxId" resultType="java.lang.Integer">
+        SELECT
+        MAX(id)
+        FROM transit_menu
+    </select>
+
+</mapper>
+
