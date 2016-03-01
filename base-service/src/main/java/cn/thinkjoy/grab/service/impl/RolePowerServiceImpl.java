@@ -2,15 +2,15 @@
  * Copyright (c) 2013-2014, thinkjoy Inc. All Rights Reserved.
  *
  * Project Name: grab
- * $Id:  MenuServiceImpl.java 2016-03-01 11:11:36 $
+ * $Id:  RolePowerServiceImpl.java 2016-03-01 11:11:38 $
  */
 package cn.thinkjoy.grab.service.impl;
 
 import cn.thinkjoy.grab.domain.BaseDomain;
 import cn.thinkjoy.grab.dao.IBaseDAO;
-import cn.thinkjoy.grab.dao.IMenuDAO;
-import cn.thinkjoy.grab.domain.Menu;
-import cn.thinkjoy.grab.service.IMenuService;
+import cn.thinkjoy.grab.dao.IRolePowerDAO;
+import cn.thinkjoy.grab.domain.RolePower;
+import cn.thinkjoy.grab.service.IRolePowerService;
 import cn.thinkjoy.grab.service.base.AbstractPageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,14 +19,14 @@ import java.util.List;
 import java.util.Map;
 
 
-@Service("MenuServiceImpl")
-public class MenuServiceImpl extends AbstractPageService<IBaseDAO<Menu>, Menu> implements IMenuService<IBaseDAO<Menu>,Menu>{
+@Service("RolePowerServiceImpl")
+public class RolePowerServiceImpl extends AbstractPageService<IBaseDAO<RolePower>, RolePower> implements IRolePowerService<IBaseDAO<RolePower>,RolePower>{
     @Autowired
-    private IMenuDAO menuDAO;
+    private IRolePowerDAO rolePowerDAO;
 
     @Override
-    public IBaseDAO<Menu> getDao() {
-        return menuDAO;
+    public IBaseDAO<RolePower> getDao() {
+        return rolePowerDAO;
     }
 
 //    @Override
@@ -80,8 +80,8 @@ public class MenuServiceImpl extends AbstractPageService<IBaseDAO<Menu>, Menu> i
 //    }
 //
 //    @Override
-//    public List<Menu> findAll() {
-//        return menuDAO.findAll();
+//    public List<RolePower> findAll() {
+//        return rolePowerDAO.findAll();
 //    }
 //
 //    @Override
@@ -135,8 +135,8 @@ public class MenuServiceImpl extends AbstractPageService<IBaseDAO<Menu>, Menu> i
 //    }
 //
 //    @Override
-//    protected MenuDAO getDao() {
-//        return menuDAO;
+//    protected RolePowerDAO getDao() {
+//        return rolePowerDAO;
 //    }
 //
 //    @Override

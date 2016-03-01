@@ -2,15 +2,15 @@
  * Copyright (c) 2013-2014, thinkjoy Inc. All Rights Reserved.
  *
  * Project Name: grab
- * $Id:  MenuServiceImpl.java 2016-03-01 11:11:36 $
+ * $Id:  RoleActionServiceImpl.java 2016-03-01 11:11:38 $
  */
 package cn.thinkjoy.grab.service.impl;
 
 import cn.thinkjoy.grab.domain.BaseDomain;
 import cn.thinkjoy.grab.dao.IBaseDAO;
-import cn.thinkjoy.grab.dao.IMenuDAO;
-import cn.thinkjoy.grab.domain.Menu;
-import cn.thinkjoy.grab.service.IMenuService;
+import cn.thinkjoy.grab.dao.IRoleActionDAO;
+import cn.thinkjoy.grab.domain.RoleAction;
+import cn.thinkjoy.grab.service.IRoleActionService;
 import cn.thinkjoy.grab.service.base.AbstractPageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,14 +19,14 @@ import java.util.List;
 import java.util.Map;
 
 
-@Service("MenuServiceImpl")
-public class MenuServiceImpl extends AbstractPageService<IBaseDAO<Menu>, Menu> implements IMenuService<IBaseDAO<Menu>,Menu>{
+@Service("RoleActionServiceImpl")
+public class RoleActionServiceImpl extends AbstractPageService<IBaseDAO<RoleAction>, RoleAction> implements IRoleActionService<IBaseDAO<RoleAction>,RoleAction>{
     @Autowired
-    private IMenuDAO menuDAO;
+    private IRoleActionDAO roleActionDAO;
 
     @Override
-    public IBaseDAO<Menu> getDao() {
-        return menuDAO;
+    public IBaseDAO<RoleAction> getDao() {
+        return roleActionDAO;
     }
 
 //    @Override
@@ -80,8 +80,8 @@ public class MenuServiceImpl extends AbstractPageService<IBaseDAO<Menu>, Menu> i
 //    }
 //
 //    @Override
-//    public List<Menu> findAll() {
-//        return menuDAO.findAll();
+//    public List<RoleAction> findAll() {
+//        return roleActionDAO.findAll();
 //    }
 //
 //    @Override
@@ -135,8 +135,8 @@ public class MenuServiceImpl extends AbstractPageService<IBaseDAO<Menu>, Menu> i
 //    }
 //
 //    @Override
-//    protected MenuDAO getDao() {
-//        return menuDAO;
+//    protected RoleActionDAO getDao() {
+//        return roleActionDAO;
 //    }
 //
 //    @Override
