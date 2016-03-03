@@ -13,8 +13,13 @@
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="order" value="1"/>
         <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <property name="locations">
+            <list>
+                <value>classpath:properties/dataSource.properties</value>
+                <value>classpath:properties/mybatis.properties</value>
+            </list>
+        </property>
     </bean>
-
 
     <!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
     <context:annotation-config/>
@@ -25,18 +30,18 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <!-- 自动扫描domain目录, 省掉Configuration.xml里的手工配置 -->
-        <property name="typeAliasesPackage" value="cn.thinkjoy.grab.domain"/>
+        <property name="typeAliasesPackage" value="${typeAliasesPackage}"/>
         <!-- 显式指定Mapper文件位置 -->
-        <property name="mapperLocations" value="classpath*:/mybatis/**/*.xml"/>
+        <property name="mapperLocations" value="${mapperLocations}"/>
     </bean>
     <!-- 扫描basePackage下接口 自动生成代理实现类 -->
     <mybatis:scan base-package="cn.thinkjoy.grab.dao" factory-ref="sqlSessionFactory"/>
 
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
         <!-- 基本属性 url、user、password -->
-        <property name="url" value="jdbc:mysql://localhost:3306/transit?useUnicode=true&amp;characterEncoding=UTF-8" />
-        <property name="username" value="root" />
-        <property name="password" value="mysql" />
+        <property name="url" value="${jdbc_url}" />
+        <property name="username" value="${username}" />
+        <property name="password" value="${password}" />
 
         <!-- 配置初始化大小、最小、最大 -->
         <property name="initialSize" value="1" />
@@ -44,13 +49,13 @@
         <property name="maxActive" value="20" />
 
         <!-- 配置获取连接等待超时的时间 -->
-        <property name="maxWait" value="60000" />
+        <property name="maxWait" value="${maxWait}" />
 
         <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
-        <property name="timeBetweenEvictionRunsMillis" value="60000" />
+        <property name="timeBetweenEvictionRunsMillis" value="${timeBetweenEvictionRunsMillis}" />
 
         <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
-        <property name="minEvictableIdleTimeMillis" value="300000" />
+        <property name="minEvictableIdleTimeMillis" value="${minEvictableIdleTimeMillis}" />
 
         <property name="validationQuery" value="SELECT 'x'" />
         <property name="testWhileIdle" value="true" />
