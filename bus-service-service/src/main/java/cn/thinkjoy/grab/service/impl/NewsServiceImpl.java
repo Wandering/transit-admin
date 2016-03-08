@@ -6,7 +6,6 @@
  */
 package cn.thinkjoy.grab.service.impl;
 
-import cn.thinkjoy.grab.domain.BaseDomain;
 import cn.thinkjoy.grab.dao.IBaseDAO;
 import cn.thinkjoy.grab.dao.INewsDAO;
 import cn.thinkjoy.grab.domain.News;

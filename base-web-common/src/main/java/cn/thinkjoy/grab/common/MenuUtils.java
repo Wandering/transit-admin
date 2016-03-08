@@ -14,7 +14,6 @@ public class MenuUtils {
     public static List<MenuDto> getTreeMenu(List<Menu> list)
     {
         List<MenuDto> dtoList = new ArrayList<>();
-        int i=1/0;
         MenuDto menuDto = null;
         for(Menu menu:list)
         {
