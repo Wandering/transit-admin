@@ -2,7 +2,7 @@
  * Copyright (c) 2013-2014, thinkjoy Inc. All Rights Reserved.
  *
  * Project Name: grab
- * $Id:  News.java 2016-03-04 11:58:15 $
+ * $Id:  News.java 2016-03-08 09:44:07 $
  */
 
 
@@ -15,6 +15,7 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
+import cn.thinkjoy.grab.domain.BaseDomain;
 
 import java.util.*;
 
@@ -23,6 +24,8 @@ public class News extends BaseDomain<Long>{
     private String title;
     /** 热点摘要 */
     private String subContent;
+    /** 图片 */
+    private String img;
     /** 热点信息 */
     private String content;
     /** 热点时间 */
@@ -45,6 +48,13 @@ public class News extends BaseDomain<Long>{
 
     public String getSubContent() {
         return this.subContent;
+    }
+    public void setImg(String value) {
+        this.img = value;
+    }
+
+    public String getImg() {
+        return this.img;
     }
     public void setContent(String value) {
         this.content = value;
@@ -73,6 +83,7 @@ public class News extends BaseDomain<Long>{
 			.append("Id",getId())
 			.append("Title",getTitle())
 			.append("SubContent",getSubContent())
+			.append("Img",getImg())
 			.append("Content",getContent())
 			.append("Hotdate",getHotdate())
 			.append("Type",getType())

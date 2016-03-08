@@ -28,6 +28,7 @@ selectList
         id as id ,
         title as title ,
         subContent as subContent ,
+        img as img ,
         content as content ,
         hotdate as hotdate ,
         type as type 
@@ -36,12 +37,14 @@ selectList
         INSERT INTO transit_news (
         title,
         subContent,
+        img,
         content,
         hotdate,
         type
         ) VALUES (
         #{title},
         #{subContent},
+        #{img},
         #{content},
         #{hotdate},
         #{type}
@@ -60,6 +63,9 @@ selectList
             </if>
             <if test="subContent!=null">
                 subContent = #{subContent},
+            </if>
+            <if test="img!=null">
+                img = #{img},
             </if>
             <if test="content!=null">
                 content = #{content},
@@ -84,6 +90,9 @@ selectList
             <if test="map.subContent!=null">
                 subContent = #{map.subContent},
             </if>
+            <if test="map.img!=null">
+                img = #{map.img},
+            </if>
             <if test="map.content!=null">
                 content = #{map.content},
             </if>
@@ -107,6 +116,9 @@ selectList
             <if test="update.subContent!=null">
                 subContent = #{update.subContent},
             </if>
+            <if test="update.img!=null">
+                img = #{update.img},
+            </if>
             <if test="update.content!=null">
                 content = #{update.content},
             </if>
@@ -128,6 +140,9 @@ selectList
             <if test="condition.subContent!=null">
                 AND subContent = #{condition.subContent}
             </if>
+            <if test="condition.img!=null">
+                AND img = #{condition.img}
+            </if>
             <if test="condition.content!=null">
                 AND content = #{condition.content}
             </if>
@@ -144,12 +159,14 @@ selectList
         INSERT INTO transit_news (
                 title,
                 subContent,
+                img,
                 content,
                 hotdate,
                 type
         ) VALUES (
                     #{map.title},
                     #{map.subContent},
+                    #{map.img},
                     #{map.content},
                     #{map.hotdate},
                     #{map.type}
@@ -162,6 +179,7 @@ selectList
         <trim prefix="SET" suffixOverrides=",">
             title = #{title},
             subContent = #{subContent},
+            img = #{img},
             content = #{content},
             hotdate = #{hotdate},
             type = #{type},
@@ -190,6 +208,9 @@ selectList
             </if>
             <if test="subContent!=null">
                 AND subContent = #{subContent}
+            </if>
+            <if test="img!=null">
+                AND img = #{img}
             </if>
             <if test="content!=null">
                 AND content = #{content}
@@ -260,6 +281,9 @@ selectList
                         <if test="selector.subContent!=null">
                             , subContent
                         </if>
+                        <if test="selector.img!=null">
+                            , img
+                        </if>
                         <if test="selector.content!=null">
                             , content
                         </if>
@@ -289,6 +313,9 @@ selectList
             </if>
             <if test="condition.subContent!=null">
                 ${condition.groupOp}   ${condition.subContent.field}  ${condition.subContent.op}  #{condition.subContent.data}
+            </if>
+            <if test="condition.img!=null">
+                ${condition.groupOp}   ${condition.img.field}  ${condition.img.op}  #{condition.img.data}
             </if>
             <if test="condition.content!=null">
                 ${condition.groupOp}   ${condition.content.field}  ${condition.content.op}  #{condition.content.data}
@@ -323,6 +350,9 @@ selectList
                     <if test="selector.subContent!=null">
                         , subContent
                     </if>
+                    <if test="selector.img!=null">
+                        , img
+                    </if>
                     <if test="selector.content!=null">
                         , content
                     </if>
@@ -347,6 +377,9 @@ selectList
             </if>
             <if test="condition.subContent!=null">
                 AND subContent like CONCAT('%', #{condition.subContent} , '%')
+            </if>
+            <if test="condition.img!=null">
+                AND img like CONCAT('%', #{condition.img} , '%')
             </if>
             <if test="condition.content!=null">
                 AND content like CONCAT('%', #{condition.content} , '%')
@@ -377,6 +410,9 @@ selectList
                 <if test="selector.subContent!=null">
                     , subContent
                 </if>
+                <if test="selector.img!=null">
+                    , img
+                </if>
                 <if test="selector.content!=null">
                     , content
                 </if>
@@ -401,6 +437,9 @@ selectList
             </if>
             <if test="condition.subContent!=null">
                 AND subContent = #{condition.subContent}
+            </if>
+            <if test="condition.img!=null">
+                AND img = #{condition.img}
             </if>
             <if test="condition.content!=null">
                 AND content = #{condition.content}
@@ -430,6 +469,9 @@ selectList
                     <if test="selector.subContent!=null">
                         , subContent
                     </if>
+                    <if test="selector.img!=null">
+                        , img
+                    </if>
                     <if test="selector.content!=null">
                         , content
                     </if>
@@ -454,6 +496,9 @@ selectList
             </if>
             <if test="condition.subContent!=null">
                 AND subContent = #{condition.subContent}
+            </if>
+            <if test="condition.img!=null">
+                AND img = #{condition.img}
             </if>
             <if test="condition.content!=null">
                 AND content = #{condition.content}
@@ -482,6 +527,9 @@ selectList
            </if>
            <if test="subContent!=null">
                ${groupOp} ${subContent.field} ${subContent.op}  #{subContent.data}
+           </if>
+           <if test="img!=null">
+               ${groupOp} ${img.field} ${img.op}  #{img.data}
            </if>
            <if test="content!=null">
                ${groupOp} ${content.field} ${content.op}  #{content.data}
