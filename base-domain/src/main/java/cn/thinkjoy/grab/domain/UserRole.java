@@ -16,7 +16,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
-public class UserRole extends BaseDomain<Integer>{
+public class UserRole extends BaseDomain{
     /** 角色名称 */
     private String name;
     /** 描述 */

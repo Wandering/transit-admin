@@ -18,7 +18,7 @@ import org.apache.commons.lang.builder.ToStringStyle;
 
 import java.util.*;
 
-public class User extends BaseDomain<Integer>{
+public class User extends BaseDomain{
     /** 账号 */
     private String name;
     /** 密码 */

@@ -18,7 +18,7 @@ import org.apache.commons.lang.builder.ToStringStyle;
 
 import java.util.*;
 
-public class RoleAction extends BaseDomain<Integer>{
+public class RoleAction extends BaseDomain{
     /** 权限名称 */
     private String name;
     /** 描述 */

@@ -19,7 +19,7 @@ import cn.thinkjoy.grab.domain.BaseDomain;
 
 import java.util.*;
 
-public class News extends BaseDomain<Long>{
+public class News extends BaseDomain{
     /** 热点标题 */
     private String title;
     /** 热点摘要 */

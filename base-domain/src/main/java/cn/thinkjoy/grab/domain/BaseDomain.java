@@ -13,20 +13,17 @@ import java.math.BigInteger;
  * @version
  * @since v0.0.1
  */
-public class BaseDomain<T> implements Serializable {
+public class BaseDomain implements Serializable {
 
     protected static final long serialVersionUID = 6667600871541308622L;
     // ID
-    private T              id;
+    private Integer     id;
 
-    public T getId() {
-        if( id instanceof BigInteger)
-            return (T)Long.valueOf(String.valueOf(this.id));
-        else
+    public Integer getId() {
             return this.id;
     }
 
-    public void setId(T id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 }

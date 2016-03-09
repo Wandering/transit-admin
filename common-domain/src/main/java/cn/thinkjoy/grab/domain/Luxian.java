@@ -11,7 +11,7 @@
 
 package cn.thinkjoy.grab.domain;
 
-public class Luxian extends BaseDomain<Integer>{
+public class Luxian extends BaseDomain{
     /** 排序 */
     private String paixu;
     /** 站名 */

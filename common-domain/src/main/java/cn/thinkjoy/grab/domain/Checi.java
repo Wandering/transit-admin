@@ -11,7 +11,7 @@
 
 package cn.thinkjoy.grab.domain;
 
-public class Checi extends BaseDomain<Long>{
+public class Checi extends BaseDomain{
     /** 名称 */
     private String name;
 

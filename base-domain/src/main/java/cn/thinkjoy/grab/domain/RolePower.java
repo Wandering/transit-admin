@@ -18,7 +18,7 @@ import org.apache.commons.lang.builder.ToStringStyle;
 
 import java.util.*;
 
-public class RolePower extends BaseDomain<Integer>{
+public class RolePower extends BaseDomain{
     /** 角色名称 */
     private String name;
     /** 描述 */

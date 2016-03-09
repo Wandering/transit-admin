@@ -18,7 +18,7 @@ import org.apache.commons.lang.builder.ToStringStyle;
 
 import java.util.*;
 
-public class MenuAction extends BaseDomain<Integer>{
+public class MenuAction extends BaseDomain{
     /** 资源名称 */
     private String name;
     /** 描述 */

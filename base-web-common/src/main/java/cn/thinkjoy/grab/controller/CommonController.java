@@ -74,7 +74,7 @@ public class CommonController extends BaseCommonController{
         while (names.hasMoreElements()) {
             prop = names.nextElement();
             String param=request.getParameter(prop);
-            if(StringUtil.isNulOrBlank(param)) {
+            if(!StringUtil.isNulOrBlank(param)) {
                 QueryUtil.setMapOp(dataMap, prop, "=", param);
             }
         }

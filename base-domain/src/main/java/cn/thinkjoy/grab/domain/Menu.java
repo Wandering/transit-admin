@@ -18,7 +18,7 @@ import org.apache.commons.lang.builder.ToStringStyle;
 
 import java.util.*;
 
-public class Menu extends BaseDomain<Integer>{
+public class Menu extends BaseDomain{
     /** 0前端1admin */
     private Boolean type;
     /** 页面url */
