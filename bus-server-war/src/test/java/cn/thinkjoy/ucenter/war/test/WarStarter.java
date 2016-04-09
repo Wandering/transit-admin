@@ -12,10 +12,10 @@ import org.eclipse.jetty.webapp.WebAppContext;
 * @since v0.0.1
 */
 public class WarStarter {
-    public static final String BASE_URL = "http://localhost:8087";
+    public static final String BASE_URL = "http://localhost:8086";
 
     public static void main(String[] args) {
-        Server server = new Server(8087);
+        Server server = new Server(8086);
         WebAppContext context = new WebAppContext("src/main/webapp", "");
         //context.setWar("/Users/qyang/works/workspace/thinkjoy-dap/dap-mq-bridge-war/src/main/webapp");
 //        context.setContextPath("/src/main/webapp");

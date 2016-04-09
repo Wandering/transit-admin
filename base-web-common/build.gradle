@@ -13,6 +13,7 @@ dependencies {
     compile "com.google.guava:guava:17.0"
     compile "cn.thinkjoy:spring-rest-exception-handler:1.0.2"
     compile "cn.thinkjoy.common:thinkjoy-protocol-common:0.1.43-SNAPSHOT"
+    compile "commons-codec:commons-codec:1.10"
 //    compile "cz.jirutka.spring:spring-rest-exception-handler:1.1.1"
     compile project(":base-service")
 

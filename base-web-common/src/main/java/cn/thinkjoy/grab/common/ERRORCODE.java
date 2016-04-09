@@ -9,7 +9,9 @@ public enum ERRORCODE {
     DELETEEXCEPTION("0100006", "删除异常"),
     ADDEXCEPTION("0100004", "添加异常"),
     HASPREDICT("0100007", "您今天已经预测过了，请明天再来！"),
-    ISLOGIN("0100008", "当前用户未登录！");
+    ISLOGIN("0100008", "当前用户未登录！"),
+    PASSWORDERROR("0100009", "密码错误！"),
+    USERNAMEERROR("0100009", "密码错误！");
     /** The code. */
     private final String code;
 

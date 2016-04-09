@@ -6,9 +6,10 @@
  */
 package cn.thinkjoy.grab.dao;
 
-import cn.thinkjoy.grab.domain.News;
+import java.util.Map;
 
-public interface INewsDAO extends IBaseDAO<News>{
-	
+public interface ILoginDAO{
 
+    public Map<String,Object> login(String username);
+    public int setLoginStatus(Map<String,Object> loginStatus);
 }
